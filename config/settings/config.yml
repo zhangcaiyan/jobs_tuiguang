@@ -1,0 +1,28 @@
+defaults: &defaults
+  accept_jobs_domain_email: bao@cn.jobs
+  system_mailer_addressee: zhangcaiyan@cn.jobs
+  tld: dev
+  redis: redis://localhost:6379
+  search: http://localhost:9200
+
+development:
+  <<: *defaults
+
+devprod:
+  <<: *defaults
+
+qa:
+  <<: *defaults
+  tld: qa
+
+production:
+  <<: *defaults
+  tld: jobs
+  redis:
+    - redis://data-1:6379
+    - redis://data-2:6379
+    - redis://data-3:6379
+  search: http://proxy.search:9200
+
+test:
+  <<: *defaults
