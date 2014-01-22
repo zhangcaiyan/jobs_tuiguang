@@ -22,6 +22,15 @@ JobsTuiguang::Application.configure do
   # Raise an error on page load if there are pending migrations
   config.active_record.migration_error = :page_load
 
+  if config.respond_to?(:action_mailer)
+    config.action_mailer.default_url_options = {:host=> Setting::Smtp[:host]["host"]}
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.raise_delivery_errors = false
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.smtp_settings = Setting::Smtp["config"].to_options
+  end
+
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.

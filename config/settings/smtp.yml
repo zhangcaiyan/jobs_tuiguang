@@ -1,0 +1,45 @@
+defaults: &defaults
+  config:
+    address: smtp.163.com
+    user_name: "cnjobs_tuiguang@163.com"
+    password: "cnjobs1033"
+    port: 25
+    authentication: :login
+    enable_starttls_auto: false
+
+
+development:
+  <<: *defaults
+  host:
+    host: www.cn.dev:80
+    host_only: www.cn.dev
+    port_only: "80"
+
+qa:
+  <<: *defaults
+  host:
+    host: www.cn.dev:80
+    host_only: www.cn.dev
+    port_only: "80"
+
+
+devprod:
+  <<: *defaults
+  host:
+    host: www.cn.dev:80
+    host_only: www.cn.dev
+    port_only: "80"
+
+test:
+  <<: *defaults
+  host:
+    host: www.cn.dev:80
+    host_only: www.cn.dev
+    port_only: "80"
+
+production:
+  <<: *defaults
+  host:
+    host: www.cn.jobs
+    host_only: www.cn.jobs
+    port_only: "80"

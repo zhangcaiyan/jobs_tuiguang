@@ -72,6 +72,16 @@ JobsTuiguang::Application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+  if config.respond_to?(:action_mailer)
+    config.action_mailer.default_url_options = {:host=> Setting::Smtp[:host]["host"]}
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.raise_delivery_errors = false
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.smtp_settings = Setting::Smtp["config"].to_options
+  end
+
+
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 
