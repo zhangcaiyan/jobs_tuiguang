@@ -1,7 +1,7 @@
 defaults: &defaults
   config:
     address: smtp.163.com
-    user_name: "cnjobs_tuiguang@163.com"
+    user_name: "cnjobs_tuiguang1@163.com"
     password: "cnjobs1033"
     port: 25
     authentication: :login

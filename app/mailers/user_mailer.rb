@@ -1,16 +1,16 @@
 class UserMailer < ActionMailer::Base
-  default from: "cnjobs_tuiguang@163.com"
+  default from: Setting::Smtp.config.user_name
 
-  def company_site_tuiguang1(email)
+  def company_site_tuiguang1(emails)
     mail( :subject => '属于您的招聘网站',
-          :to => email,
+          :to => emails,
           :date => Time.now
         )
   end
 
-  def company_site_tuiguang2(email)
+  def company_site_tuiguang2(emails)
     mail( :subject => '属于您的招聘网站',
-          :to => email,
+          :to => emails,
           :date => Time.now
         )
   end
